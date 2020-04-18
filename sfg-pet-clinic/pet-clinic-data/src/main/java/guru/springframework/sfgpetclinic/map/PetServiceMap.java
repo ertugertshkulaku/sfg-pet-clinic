@@ -10,11 +10,7 @@ import guru.springframework.sfgpetclinic.services.PetService;
 @Service
 public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetService {
 
-	@Override
-	public Pet save(Pet object) {
-		// TODO Auto-generated method stub
-		return null;
-	}
+	
 
 	@Override
 	public Set<Pet> findAll() {
@@ -29,9 +25,9 @@ public class PetServiceMap extends AbstractMapService<Pet, Long> implements PetS
 	}
 
 	@Override
-	public Pet save(Long id, Pet object) {
+	public Pet save( Pet object) {
 		// TODO Auto-generated method stub
-		return super.save(id, object);
+		return super.save( object);
 	}
 
 	@Override
