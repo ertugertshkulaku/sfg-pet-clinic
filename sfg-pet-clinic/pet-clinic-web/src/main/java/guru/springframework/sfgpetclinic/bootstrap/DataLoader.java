@@ -11,18 +11,29 @@ import guru.springframework.sfgpetclinic.services.VetService;
 @Component
 public class DataLoader implements CommandLineRunner {
 	
+	
 	private  final OwnerService ownerService;
 	private final VetService vetService;
 	
 	
 	
 	
-	
+
+
+
+
+
+
 
 	public DataLoader(OwnerService ownerService, VetService vetService) {
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 	}
+
+
+
+
+
 
 
 
@@ -47,6 +58,7 @@ public class DataLoader implements CommandLineRunner {
 		ownerService.save(owner2);
 		
 		System.out.println("Loaded Owners...");
+		System.out.println("Loaded OWNERS " + ownerService.findAll().size() );
 		
 		
 		Vet vet1 = new Vet();
