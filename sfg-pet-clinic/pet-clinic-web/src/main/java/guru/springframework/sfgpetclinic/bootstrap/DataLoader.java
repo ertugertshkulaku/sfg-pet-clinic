@@ -127,7 +127,7 @@ public DataLoader(OwnerService ownerService, VetService vetService, PetTypeServi
 		
 		vetService.save(vet2);
 		
-		System.out.println("Loaded Vets..." +vetService.findAll().size());
+	//	System.out.println("Loaded Vets..." +vetService.findAll().size());
 	}
 	
 	
