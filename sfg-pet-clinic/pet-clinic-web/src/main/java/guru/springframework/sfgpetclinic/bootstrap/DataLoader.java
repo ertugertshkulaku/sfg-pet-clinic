@@ -104,7 +104,7 @@ public DataLoader(OwnerService ownerService, VetService vetService, PetTypeServi
 		Vet vet1 = new Vet();
 		vet1.setFirstName("Sam");
 		vet1.setLastName("AXE");
-		vet1.getSpeciality().add(savedRadiology);
+		vet1.getSpecialties().add(savedRadiology);
 		
 		vetService.save(vet1);
 		
@@ -112,7 +112,7 @@ public DataLoader(OwnerService ownerService, VetService vetService, PetTypeServi
 		Vet vet2 = new Vet();
 		vet2.setFirstName("Jessie");
 		vet2.setLastName("Porter");
-		vet2.getSpeciality().add(savedSurgery);
+		vet2.getSpecialties().add(savedSurgery);
 		
 		vetService.save(vet2);
 		
