@@ -10,10 +10,12 @@ import guru.springframework.sfgpetclinic.model.Pet;
 import guru.springframework.sfgpetclinic.model.PetType;
 import guru.springframework.sfgpetclinic.model.Speciality;
 import guru.springframework.sfgpetclinic.model.Vet;
+import guru.springframework.sfgpetclinic.model.Visit;
 import guru.springframework.sfgpetclinic.services.OwnerService;
 import guru.springframework.sfgpetclinic.services.PetTypeService;
 import guru.springframework.sfgpetclinic.services.SpecialitesService;
 import guru.springframework.sfgpetclinic.services.VetService;
+import guru.springframework.sfgpetclinic.services.VisitService;
 
 @Component
 public class DataLoader implements CommandLineRunner {
@@ -23,14 +25,16 @@ public class DataLoader implements CommandLineRunner {
 	private final VetService vetService;
 	private final PetTypeService petTypeService;
 	private final SpecialitesService specialitesService;
+	private final VisitService visitService;
 	
 	
 	
-public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialitesService specialitesService) {
+public DataLoader(OwnerService ownerService, VetService vetService, PetTypeService petTypeService, SpecialitesService specialitesService,VisitService visitService) {
 		this.ownerService = ownerService;
 		this.vetService = vetService;
 		this.petTypeService= petTypeService;
 		this.specialitesService = specialitesService;
+		this.visitService = visitService;
 	}
 
 	@Override
@@ -96,6 +100,13 @@ public DataLoader(OwnerService ownerService, VetService vetService, PetTypeServi
 		jonasPet.setName("Bobi");
 		owner2.getPets().add(jonasPet);
 		ownerService.save(owner2);
+		
+		Visit catVisit = new Visit();
+		catVisit.setPet(jonasPet);
+		catVisit.setDate(LocalDate.now());
+		catVisit.setDescription("MACOK BUDALLA");
+		
+		visitService.save(catVisit);
 		
 		System.out.println("Loaded Owners...");
 		System.out.println("Loaded OWNERS " + ownerService.findAll().size() );
